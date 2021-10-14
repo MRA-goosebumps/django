@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    {{artikel_detail.judul}}
+{% endblock page_title %}
+
+{% block contents %}
+    <h3>{{ artikel_detail.judul }}</h3>
+    <p>Category: {{ artikel_detail.kategori }} | Published: {{ artikel_detail.published }}</p>
+    <p>Updated: {{ artikel_detail.updated }}</p>
+
+    {% if artikel_detail.image  %}
+        <img style="max-width:50%; height:auto" src="{{artikel_detail.image.url}}" alt="">
+    {% else %}
+        <img src="" alt="">
+    {% endif %}
+    
+    <br>
+    <br>
+    <p style="text-justify:auto">{{ artikel_detail.isi}} Selengkapnya</p>
+{% endblock contents %}

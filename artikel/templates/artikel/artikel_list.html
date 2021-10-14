@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+    Artikel
+{% endblock page_title %}
+
+{% block contents %}
+
+{% for artikel in artikel_list %}
+    <h3 style="justify-self: center">{{ artikel.judul }}</h3>
+    <p>Category: {{ artikel.kategori }} | Published: {{ artikel.published }}</p>
+    <p>Updated: {{ artikel.updated }}</p>
+    <p>{{ artikel.isi|truncatewords:50 }} <a href="{% url 'artikel:detail' artikel.slug %}"> Selengkapnya</a></p>
+
+{% endfor %}
+
+{% endblock contents %}
